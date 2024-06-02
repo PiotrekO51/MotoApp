@@ -6,7 +6,8 @@ using MotoApp.Entities;
 public class MotoAppDbContext : DbContext
 {
     public DbSet<Employee> Employes =>  Set<Employee>();
-        
+
+    public DbSet<Manager> Managers => Set<Manager>();
 
     public DbSet<BusinesPartner> BusinesPartner => Set<BusinesPartner>();
 

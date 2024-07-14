@@ -19,10 +19,7 @@
             }
         }
 
-        public Employee GetById(int id)
-        {
-            return _employees.Single(item => item.Id == id);
-        }
-
+        public Employee GetById(int id) =>_employees.Single(item => item.Id == id);
+        
     }
 }

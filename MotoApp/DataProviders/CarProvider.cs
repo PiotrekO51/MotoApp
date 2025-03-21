@@ -1,6 +1,7 @@
 ﻿using MotoApp.DataProviders.Extensions;
 using MotoApp.Entities;
 using MotoApp.Repositories;
+using System.Text;
 
 namespace MotoApp.DataProviders;
 
@@ -40,11 +41,34 @@ public class CarProvider : ICarProvider
 
     public List<Car> GetSpecyficColumns()
     {
-        throw new NotImplementedException();
+        var cars = _carsRepository.GetAll();
+        var list = cars.Select(c => new Car
+        {
+            Id = c.Id,
+            Name = c.Name,
+            Color = c.Color,
+            Type = c.Type,
+        }).ToList();
+        return list;
     }
     public string AnnonymousClass()
     {
-        throw new NotImplementedException();
+        var cars = _carsRepository.GetAll();
+        var list = cars.Select(c => new
+        {
+            Identifier = c.Id,
+            ProductName = c.Name,
+            ProductType = c.Type
+        });
+
+        StringBuilder sb = new(1024);
+        foreach (var item in list)
+        {
+            sb.AppendLine($"ID: {item.Identifier}    ");
+            sb.AppendLine($"    Product Name: {item.ProductName}");
+            sb.AppendLine($"    Product Type: {item.ProductType} ");
+        }
+        return sb.ToString();
     }
     // Order By
     public List<Car> OrderByName()

@@ -235,6 +235,40 @@ public class CarOperation : ICarOperation
 
     }
 
+    public void AdditionalFunctions()
+    {
+        bool Close = true;
+        while (Close)
+        {
+            Console.Clear();
+            Console.SetCursorPosition(5, 1);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("Wyszukiwanie  Funkcja dodatkowe  \n " +
+                ""+
+                "Wybierz ID metody poszukiwań  lub - x -  w celu rozpoczęcia czynność \n" +
+                "\n" +
+                "1 - Wyszukiwanie po kolumnach specyficznych \n" +
+                "2 - Klasa tymczasowa anonimowa \n" +
+                "x - WYJSCIE Z PROGRAMU\n" +
+                "");
+
+            string input = Console.ReadLine();
+            switch (input)
+            {
+                case "1":
+                    GetSpecyficColumnsM();
+                    break;
+                case "2":
+                    AnnonymousClass();
+                    break;
+                case "x":
+                    Close = false;
+                    break;
+            }
+        }
+
+    }
+
 
     // Get By 
     void GetUniqueCarsColors()
@@ -527,7 +561,24 @@ public class CarOperation : ICarOperation
             Console.ReadLine();
             break;
         }
-
     }
 
+    void GetSpecyficColumnsM()
+    {
+        var cars = _carProvider.GetSpecyficColumns();
+        foreach (var car in cars) 
+        {
+            Console.WriteLine(car); 
+        }
+        Console.ReadLine();
+    }
+    void AnnonymousClass()
+    {
+        var cars = _carProvider.AnnonymousClass();
+        foreach (var c in cars)
+        {
+            Console.WriteLine(c);
+        }
+        Console.ReadLine();
+    }
 }

@@ -28,7 +28,7 @@ namespace MotoApp.MenuData
                     "1 - Szukanie metodą Select                          2 - Metody OrderBy \n" +
                     "3 - Metody Where                                    4 - Metody Firs  Single Last\n" +
                     "5 - Metody Take                                     6 - Metody Distinct  Chunk  \n" +
-                    "x - WYJSCIE Z PROGRAMU ");
+                    "7 - Dodatek specjalny                               x - WYJSCIE Z PROGRAMU ");
 
                 string input = Console.ReadLine();
                 switch (input)
@@ -50,6 +50,9 @@ namespace MotoApp.MenuData
                         break;
                     case "6":
                         _carOperation.SkiPDistinctChunkMethods();
+                        break;
+                    case "7":
+                        _carOperation.AdditionalFunctions();
                         break;
                     case "x":
                         Close = false;

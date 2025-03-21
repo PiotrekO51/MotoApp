@@ -7,7 +7,8 @@ public interface ICarOperation
     void OrderByMethods();
     void WhereMethods();
     void FirstSingleMethods();
-
     void TakeMethods();
     void SkiPDistinctChunkMethods();
+    void AdditionalFunctions();
+    
 }

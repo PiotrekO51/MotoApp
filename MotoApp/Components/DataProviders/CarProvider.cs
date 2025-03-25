@@ -1,9 +1,9 @@
-﻿using MotoApp.DataProviders.Extensions;
-using MotoApp.Entities;
-using MotoApp.Repositories;
+﻿using MotoApp.Components.DataProviders.Extensions;
+using MotoApp.Data.Entities;
+using MotoApp.Data.Repositories;
 using System.Text;
 
-namespace MotoApp.DataProviders;
+namespace MotoApp.Components.DataProviders;
 
 public class CarProvider : ICarProvider
 {

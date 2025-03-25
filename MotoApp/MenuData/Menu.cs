@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MotoApp.CarRepoOperations;
-using MotoApp.DataProviders;
+using MotoApp.Components.DataProviders;
 
 namespace MotoApp.MenuData
 {

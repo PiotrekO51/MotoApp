@@ -1,5 +1,5 @@
-﻿using MotoApp.Entities;
-using MotoApp.Repositories;
+﻿using MotoApp.Data.Entities;
+using MotoApp.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
 namespace MotoApp.MenuData;
 

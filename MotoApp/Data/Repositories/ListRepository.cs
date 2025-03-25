@@ -1,6 +1,6 @@
-﻿using MotoApp.Entities;
+﻿using MotoApp.Data.Entities;
 
-namespace MotoApp.Repositories;
+namespace MotoApp.Data.Repositories;
 
 public class ListRepository<T> : IRepository<T> where T : class, IEntiti, new()
 {
@@ -16,7 +16,7 @@ public class ListRepository<T> : IRepository<T> where T : class, IEntiti, new()
     {
         item.Id = _items.Count + 1;
         _items.Add(item);
-        ItemAdded?.Invoke (this, item);
+        ItemAdded?.Invoke(this, item);
     }
     public IEnumerable<T> GetAll() => _items.ToList();
 

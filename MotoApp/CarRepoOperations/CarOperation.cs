@@ -1,9 +1,11 @@
 ﻿
-using MotoApp.DataProviders;
-using MotoApp.Entities;
-using MotoApp.Repositories;
+
+using MotoApp.Components.DataProviders;
+using MotoApp.Data.Entities;
+using MotoApp.Data.Repositories;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
 
 namespace MotoApp.CarRepoOperations;
 
@@ -11,11 +13,13 @@ public class CarOperation : ICarOperation
 {
     private readonly IRepository<Car> _carRepository;
     private readonly ICarProvider _carProvider;
+  
 
-    public CarOperation(ICarProvider carProvider)
+    public CarOperation(ICarProvider carProvider, IRepository<Car> carRepository)
     {
-        //_carRepository = carRepository;
+        _carRepository = carRepository;
         _carProvider = carProvider;
+     
     }
 
     public void GetByMetods()
@@ -545,18 +549,29 @@ public class CarOperation : ICarOperation
         while (true)
         {
             int rangeUpp = 0;
-
-            Console.WriteLine("Podaj dolną wartość zakresu");
+            int count = 0;
+            Console.WriteLine("Podaj długość paczki");
             string ra = Console.ReadLine();
-            if (ra != null)
+          
+            if (ra != null  )
             {
                 int.TryParse(ra, out rangeUpp);
+
             }
             else { Console.WriteLine("Błedana wartość"); Thread.Sleep(750); }
             var cars = _carProvider.ChunkCars(rangeUpp);
             foreach (var car in cars)
             {
-                Console.WriteLine(car.ToString());
+                count++;
+                Console.ForegroundColor= ConsoleColor.Red;
+                Console.WriteLine($"Paczka nr: {count}\n" +
+                    $"");
+                foreach (var c in car)
+                {
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine(c.ToString());
+                }
+                
             }
             Console.ReadLine();
             break;

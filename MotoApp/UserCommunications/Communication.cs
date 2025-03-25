@@ -1,9 +1,9 @@
-﻿using MotoApp.Entities;
-using MotoApp.Repositories;
-using MotoApp.DataProviders;
-using System.ComponentModel.Design;
+﻿using System.ComponentModel.Design;
 using System.Runtime.InteropServices;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using MotoApp.Components.DataProviders;
+using MotoApp.Data.Entities;
+using MotoApp.Data.Repositories;
 namespace MotoApp.UserCommunications;
 
 public class Communication : ICommunication

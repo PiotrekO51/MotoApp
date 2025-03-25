@@ -1,8 +1,7 @@
-﻿
-using MotoApp.Entities;
+﻿using MotoApp.Data.Entities;
 using System.Drawing;
 using System.Runtime.CompilerServices;
-namespace MotoApp.DataProviders.Extensions;
+namespace MotoApp.Components.DataProviders.Extensions;
 
 public static class CarsHelper
 {
